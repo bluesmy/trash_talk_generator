@@ -1,0 +1,56 @@
+<div class="container py-5">
+  <h5 class="text-center">你想對誰說幹話？</h5>
+  <hr>
+  <form class="form-inline" method="POST" action="/">
+    <div class="row">
+      <div class="col-4 mb-4">
+        <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5668/angry-developer.jpg" width=100%;
+          height=80%;>
+        <div class="d-flex justify-content-center mt-4 custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="engineer" name="job" value="engineer"
+            {{#ifEquals options 'engineer'}} checked {{/ifEquals}}>
+          <label class="custom-control-label" for="engineer">工程師</label>
+        </div>
+      </div>
+      <div class="col-4 mb-4">
+        <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5667/angry-designer.jpg" width=100%;
+          height=80%;>
+        <div class="d-flex justify-content-center mt-4 custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="designer" name="job" value="designer"
+            {{#ifEquals options 'designer'}} checked {{/ifEquals}}>
+          <label class="custom-control-label" for="designer">設計師</label>
+        </div>
+      </div>
+      <div class="col-4 mb-4">
+        <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5669/angry-founder.jpg" width=100%;
+          height=80%;>
+        <div class="d-flex justify-content-center mt-4 custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="entrepreneur" name="job" value="entrepreneur"
+            {{#ifEquals options 'entrepreneur'}} checked {{/ifEquals}}>
+          <label class="custom-control-label" for="entrepreneur">創業家</label>
+        </div>
+      </div>
+
+      <div class="col-2 mt-2 text-center">
+        <button class="btn btn-dark" type="submit">產生幹話 <i class="fas fa-trash-alt"></i></button>
+      </div>
+      <div class="col-10">
+        {{!-- error messege --}}
+        {{#ifEquals error false}}
+        <div class="alert alert-danger" role="alert">
+          <span>請選擇一個職業！</span>
+        </div>
+        {{/ifEquals}}
+
+        {{!-- show trash talk --}}
+        {{#if job}}
+        <div class="alert alert-info" role="alert">
+          <span>身為一個</span><span style="color:blue">{{job}}</span><span>，</span><span
+            style="color:blue">{{task}}</span><span>，</span><span style="color:blue">{{phrase}}</span><span
+            style="color:blue">吧！</span>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+  </form>
+</div>
